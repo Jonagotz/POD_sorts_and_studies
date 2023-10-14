@@ -54,32 +54,33 @@ void bubbleSort(int *A, int size){
 }
 
 void selectionSort(int *A, int size) {
-    int min, aux;
     long int contador = 0;
+
     for(int i = 0; i < size - 1; i++){ 
-        min = i; // guarda o valor de i em min para testar no próximo loop se é o menor
-         for (int j = i + 1; j < size; j++){ 
-            if(A[j] < A[min]){ // o valor da array que esta sendo acessado neste momento é o menor até agora?
-                min = j; // se sim atualiza o valor da variável min
-            } 
-            if(i != min){ // se não for atualiza a array trocando os valores de lugar com um auxiliar
-                aux = A[i]; 
-                A[i] = A[min];
-                A[min] = aux;
-                contador++;
+        int min = i;
+         for (int j = i + 1; j < size; j++){
+            if(A[j] < A[min]){
+                min = j;
             }
         }
+        
+        if(i != min){
+            int aux = A[i];
+            A[i] = A[min];
+            A[min] = aux;
+            contador++;
+        }
     }
+
     printf("\n Trocas no selection: %ld\n", contador);
 }
 
 void insertionSort(int *A, int size) {
     long int contador = 0;
     int aux, j;
-    for(int i = 1; i < size; i++){ //inclui inicialmente o primeiro elemento começando com array[1]
+    for(int i = 1; i < size; i++){
         aux = A[i];
-
-        for(j = i - 1; j >= 0 && A[j] > aux; j--){ //começando as comparações na primeira posição e dando loop até q o valor da array em j ser maior que o valor do aux (i)
+        for(j = i - 1; j >= 0 && A[j] > aux; j--){
             A[j+1] = A[j]; 
             contador++;
         }
@@ -87,6 +88,7 @@ void insertionSort(int *A, int size) {
         A[j+1] = aux;
         contador++;
     }
+
     printf("\n Trocas no insertion: %ld\n", contador);
 }
 
@@ -119,7 +121,7 @@ void quickSort(int *A, int baixo, int alto, long int *contador) {
 int main(){
     srand(time(NULL));
     // tamanho do vetor
-    int n = 1000000;
+    int n = 1000;
     int *vet = (int *)malloc(n * sizeof(int));
 
     if (vet == NULL) {
