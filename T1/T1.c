@@ -117,18 +117,10 @@ void quickSort(int *A, int baixo, int alto, long int *contador) {
 
 }
 
-
-int main(){
-    srand(time(NULL));
-    // tamanho do vetor
-    int n = 1000;
+void programa (int n) {
     int *vet = (int *)malloc(n * sizeof(int));
 
-    if (vet == NULL) {
-        printf("Falha na alocação de memória.\n");
-        return 1; // Saia com um código de erro
-    }
-
+    // alimentando array
     for (int i = 0; i < n; i++) {
         vet[i] = rand();
     }
@@ -177,6 +169,8 @@ int main(){
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("\n Trocas no quick: %ld\n", contadorQuick);
     printf(" tempo usado para usar o quick: %f\n", time_spent);
+
+    printf("================================================================================");
     
     // liberando memória
     free(vet);
@@ -184,5 +178,19 @@ int main(){
     free(selectionVec);
     free(insertionVec);
     free(quickVec);
+}
+
+
+int main(){
+    srand(time(NULL));
+    // tamanho do vetor
+    // valores para ordenar, em ordem: 1000, 5000, 10000, 50000, 100000, 1000000
+    int n[6] = {1000, 5000, 10000, 50000, 100000, 1000000};
+    int size = sizeof(n)/sizeof(n[0]);
+
+    // chama programa em loop
+    for (int i; i < size; i++){
+        programa(n[i]);
+    }
 	return 0;
 }
