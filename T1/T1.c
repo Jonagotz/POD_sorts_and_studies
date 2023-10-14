@@ -185,7 +185,7 @@ int main(){
     srand(time(NULL));
     // tamanho do vetor
     // valores para ordenar, em ordem: 1000, 5000, 10000, 50000, 100000, 1000000
-    int n[6] = {1000, 5000, 10000, 50000, 100000, 1000000};
+    int n[] = {1000, 5000, 10000, 50000, 100000, 1000000};
     int size = sizeof(n)/sizeof(n[0]);
 
     // chama programa em loop
