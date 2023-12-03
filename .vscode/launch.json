@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/jonathan/Documents/UFFS/POD/git",
-      "program": "/home/jonathan/Documents/UFFS/POD/git/build/Debug/outDebug",
+      "cwd": "/home/jonathan/Desktop/POD_sorts_and_studies",
+      "program": "/home/jonathan/Desktop/POD_sorts_and_studies/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
